@@ -13,12 +13,6 @@
             {%- assign topnav_dropdowns = site.data[page.topnav].topnav_dropdowns %}
 
                 {%- for folder in topnav.topnav[page.lang] -%}
-                    {% comment %}
-                    Notice:
-                        Liquid engine is very poor in working with boolean logic.
-                        Also, somehow, it can not check equality of folder.url == '/' and page.url=='/' - something buggy here.
-                        That's why below lines of li class are such ugly.
-                    {% endcomment %}
                     <li class="header__menu--item submenu-parent
                         {%- if folder.folderitems %} header__menu--item_parent{% endif %}
                         {%- if folder.url.size>1 and page.url == folder.url %} header__menu--item_active{% endif %}
@@ -90,23 +84,8 @@
                 </div>
             </li>
            
-            <!--
-            <li class="header__menu-icon"><a href="https://github.com{{ site.github_repo_path }}" rel="noopener noreferrer" target="_blank" class="page__icon page__icon_github" title="GitHub"></a></li>
-            <li class="header__menu-icon"><a href="https://github.com{{ site.github_repo_path }}/discussions" rel="noopener noreferrer" target="_blank" class="page__icon page__icon_discussions" title="GitHub Discussions"></a></li>
-            <li class="header__menu-icon header__menu-icon_search"><a href="javascript:void(0)" class="page__icon page__icon_search"></a></li> -->
         </ul>
       </div>
     </div>
   </div>
 </header>
-
-<!-- <div class="header-dummy"></div>
-<div class="topsearch">
-    <div class="page__container">
-        <form action="https://www.google.com/search" class="topsearch__form" method="get" name="searchform" target="_blank">
-            <input name="sitesearch" type="hidden" value="{{ site.site_urls[page.lang] }}">
-            <input autocomplete="on" class="page__input topsearch__input" name="q" placeholder="{% if page.lang == "ru" %}Поиск по документации{% else %}Search the documentation{% endif %}" required="required"  type="text">
-            <button type="submit" class="page__icon page__icon_search topsearch__btn"></button>
-        </form>
-    </div>
-</div> -->
